@@ -26,6 +26,36 @@ public class KodePos
     }
 }
 
+public class DoorMachine
+{
+    private State state;
+
+    public DoorMachine()
+    {
+        state = State.Terkunci;
+        Console.WriteLine("Pintu terkunci");
+    }
+
+    public void BukaPintu()
+    {
+        state = State.Terbuka;
+        Console.WriteLine("Pintu tidak terkunci");
+    }
+
+    public void KunciPintu()
+    {
+        state = State.Terkunci;
+        Console.WriteLine("Pintu terkunci");
+    }
+
+    private enum State
+    {
+        Terkunci,
+        Terbuka
+    }
+}
+
+
 class Program
 {
     static void Main(string[] args)
@@ -54,5 +84,12 @@ class Program
         Console.WriteLine(kodePos);
         kodePos = KodePos.GetKodePos("Ga tau");
         Console.WriteLine(kodePos);
+
+        Console.WriteLine("==========================================");
+
+        DoorMachine mesinPintu = new DoorMachine();
+        mesinPintu.BukaPintu();
+        mesinPintu.KunciPintu();
     }
 }
+
